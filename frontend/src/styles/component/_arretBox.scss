@@ -1,0 +1,53 @@
+.arretBox {
+  padding-top: 10px;
+  margin: auto;
+  margin-top: 2rem;
+  font-size: medium;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-style: italic;
+  }
+}
+
+.formBox {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.defaut {
+  color: purple;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+.defautDetails {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.timeDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.time {
+  width: 100%;
+}
+.duree {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //   padding: 0.5rem;
+}

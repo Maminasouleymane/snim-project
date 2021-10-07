@@ -1,0 +1,45 @@
+.tableBox {
+  margin: 3rem;
+}
+
+h1 {
+  margin-left: 2.2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-decoration: underline;
+}
+
+.calender {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h1 {
+    margin-left: 1.6rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+  }
+}
+
+.dateRange {
+  margin-right: 3rem;
+  padding-top: 0.6rem;
+}
+
+.calenderSelector {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+
+  padding-top: 2.5rem;
+}
+
+.selectInput {
+  margin-left: 2.5rem;
+  width: 10rem;
+}
+
+.MuiGrid-root MuiGrid-item {
+  max-width: 70%;
+}

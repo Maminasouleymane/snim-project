@@ -1,0 +1,19 @@
+.saisie {
+    // margin-left: 55rem;
+    width: 100%;
+    display: flex ;
+    flex-direction: row;
+    justify-content: space-between ;
+    // align-items: center ;
+    // padding: 1.2rem
+    h1 {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-decoration: underline;
+    }
+    span {
+    padding-top: 2rem;
+    padding-right: 3rem;
+    font-size: medium;
+    font-family: fantasy;
+    }
+}

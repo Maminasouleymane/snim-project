@@ -1,0 +1,21 @@
+.snimsml{
+  margin-top: 4rem;
+  margin-left: 12rem ;
+  margin-right: 12rem ; 
+    // margin-top : 
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    // align-items: center
+}
+
+.liaisonHeader {
+    display: flex ;
+    flex-direction: row ;
+    justify-content: space-between;
+}
+
+.snimTable {
+    display: flex ;
+    align-items: center;
+}

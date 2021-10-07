@@ -1,0 +1,38 @@
+.operationContainer {
+    margin: auto ;
+    margin-top: 4rem;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    th{
+        background-color: cadetblue;
+        font-size: medium;
+        font-family: monospace;
+        text-align: center;
+    }
+}
+
+.OperationTable {
+    width: 70%;
+    margin-top: 5rem;
+}
+
+.btnContainer {
+    width: 100%;
+    /* margin-left: 67rem; */
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 40rem;
+}
+
+// th{ 
+//     background-color: cadetblue;
+//     font-size: medium;
+//     text-align: center;
+// }
+
+// td{
+//     font-size: small;
+//     /* font: message-box; */
+//     font-family: monospace;
+// }
