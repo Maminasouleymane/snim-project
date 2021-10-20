@@ -16,10 +16,12 @@ module.exports = (sequelize, DataTypes) => {
   Liaison.init({
     date: DataTypes.STRING,
     consomateur: DataTypes.STRING,
-    ea_d: DataTypes.INTEGER,
-    er_d: DataTypes.INTEGER,
-    ea_f: DataTypes.INTEGER,
-    er_f: DataTypes.INTEGER
+    ead: DataTypes.INTEGER,
+    erd: DataTypes.INTEGER,
+    eaf: DataTypes.INTEGER,
+    erf: DataTypes.INTEGER,
+    ea: DataTypes.INTEGER,
+    er: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Liaison',

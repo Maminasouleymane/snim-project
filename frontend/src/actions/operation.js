@@ -13,7 +13,7 @@ export const fetchData = (operation) => ({
 export const startSetOperation = () => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3009/get_operation")
+      .get("http://localhost:3009/displayOperation")
       .then((response) => {
         dispatch(setOperationData(response.data));
       })

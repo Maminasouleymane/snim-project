@@ -8,7 +8,7 @@ export const setGroupeData = (groupe) => ({
 export const sendGroupe = (groupes) => {
   return (dispatch) => {
     return axios
-      .post("http://localhost:3009/add_groupe", groupes)
+      .post("http://localhost:3009/addGroupe", groupes)
       .then((response) => {
         dispatch(setGroupeData(groupes));
         window.confirm(response.data);
@@ -31,7 +31,7 @@ export const fetchData = (groupe) => ({
 export const startSetGroupe = () => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3009/get_groupe")
+      .get("http://localhost:3009/displayGroupe")
       .then((response) => {
         dispatch(setGroupeData(response.data));
       })

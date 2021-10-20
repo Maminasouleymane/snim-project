@@ -19,7 +19,6 @@ import "react-dates/lib/css/_datepicker.css";
 import groupeFilter from "../selectors/groupe";
 import selectedData from "../selectors/info";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "90%",
@@ -60,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     background: "#fff",
     left: 0,
     zIndex: 1,
-    
   },
 }));
 const StyledTableCell = withStyles((theme) => ({
@@ -127,12 +125,22 @@ const CleTable = (props) => {
 
   const groupes = props.groupe.filter((gr) => gr.numero !== "EO");
 
-// gother groupes data by Day 
+  // gother groupes data by Day
   const groupesByDay = groupes.reduce(
     (groupesArray, { date, numero, ep, hmarche, np, huile, comb, ap, ai }) => {
       let day = date; // unique `loc` dayey
       if (groupesArray[day] || (groupesArray[day] = []))
-        groupesArray[day].push({ date, numero, ep, hmarche, np, huile, comb, ap, ai });
+        groupesArray[day].push({
+          date,
+          numero,
+          ep,
+          hmarche,
+          np,
+          huile,
+          comb,
+          ap,
+          ai,
+        });
       return groupesArray;
     },
     []
@@ -158,7 +166,7 @@ const CleTable = (props) => {
     setData(data.target.value);
   };
 
-useEffect(() => moment().local("fr"))
+  useEffect(() => moment().local("fr"));
   return (
     <div className="tableBox">
       <div className="calender">
@@ -189,7 +197,7 @@ useEffect(() => moment().local("fr"))
               aria-label="sticky table"
               size="small"
             >
-              <TableCell  className={classes.sticky}>date</TableCell>
+              <TableCell className={classes.sticky}>date</TableCell>
               <TableCell align="left">EP</TableCell>
               <TableCell align="left">CEP</TableCell>
               <TableCell align="left">HMarche</TableCell>
@@ -314,6 +322,7 @@ useEffect(() => moment().local("fr"))
 
 const mapStateToProps = (state) => {
   const { groupe, filters } = state;
+  console.log(groupe);
   return {
     groupe: selectedData(groupe, filters),
     filters,

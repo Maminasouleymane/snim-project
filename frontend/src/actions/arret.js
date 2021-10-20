@@ -13,7 +13,7 @@ export const fetchData = (arret) => ({
 export const startSetArret = () => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3009/arret_imprevue")
+      .get("http://localhost:3009/displayArret")
       .then((response) => {
         dispatch(setArretData(response.data));
       })

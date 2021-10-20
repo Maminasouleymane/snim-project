@@ -111,16 +111,16 @@ const Snim = (props) => {
               <TableBody>
                 {props.data.map(
                   (
-                    { date, consomateur, ea_d, ea_f, er_d, er_f, ea, er },
+                    { date, consomateur, ead, eaf, erd, erf, ea, er },
                     index
                   ) => (
                     <StyledTableRow key={index}>
                       <StyledTableCell>{date}</StyledTableCell>
                       <StyledTableCell>{consomateur}</StyledTableCell>
-                      <StyledTableCell>{ea_d}</StyledTableCell>
-                      <StyledTableCell>{ea_f}</StyledTableCell>
-                      <StyledTableCell>{er_d}</StyledTableCell>
-                      <StyledTableCell>{er_f}</StyledTableCell>
+                      <StyledTableCell>{ead}</StyledTableCell>
+                      <StyledTableCell>{eaf}</StyledTableCell>
+                      <StyledTableCell>{erd}</StyledTableCell>
+                      <StyledTableCell>{erf}</StyledTableCell>
                       <StyledTableCell>{ea}</StyledTableCell>
                       <StyledTableCell>{er}</StyledTableCell>
                     </StyledTableRow>

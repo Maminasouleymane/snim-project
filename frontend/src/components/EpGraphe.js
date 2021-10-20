@@ -13,7 +13,7 @@ import selectedData from "../selectors/info";
 
 const EpGraphe = (props) => {
   const [groupe, setGroupe] = useState(null);
-
+  console.log("read", props.groupe);
   const result = props.groupe.reduce((r, o) => {
     let k = o.numero; // unique `loc` key
     if (r[k] || (r[k] = []))

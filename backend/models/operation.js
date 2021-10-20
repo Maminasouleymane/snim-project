@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   Operation.init({
     date: DataTypes.STRING,
-    op1: DataTypes.FLOAT,
-    op2: DataTypes.FLOAT,
-    op3: DataTypes.FLOAT
+    op1: DataTypes.INTEGER,
+    op2: DataTypes.INTEGER,
+    op3: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Operation',

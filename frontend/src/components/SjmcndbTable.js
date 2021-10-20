@@ -127,6 +127,7 @@ const SjmcndbTable = (props) => {
     return gr.numero === data;
   });
 
+  console.log("im grp", grp);
   const eo = props.groupe.filter((gr) => gr.numero !== "EO");
   console.log(eo);
   const t = eo.reduce((r, o) => {

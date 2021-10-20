@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('arrets', {
+    await queryInterface.createTable('Arrets', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,28 +14,25 @@ module.exports = {
       groupe: {
         type: Sequelize.STRING
       },
-      defaut: {
+      codeDefaut: {
         type: Sequelize.STRING
       },
-      code_defaut: {
-        type: Sequelize.STRING
-      },
-      type_defaut: {
+      typeDefaut: {
         type: Sequelize.STRING
       },
       section: {
         type: Sequelize.STRING
       },
-      h_debut: {
+      dateDebut: {
         type: Sequelize.STRING
       },
-      h_fin: {
+      dateFin: {
         type: Sequelize.STRING
       },
-      duree_hm: {
+      dureeHM: {
         type: Sequelize.STRING
       },
-      duree_heure: {
+      duree: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -49,6 +46,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('arrets');
+    await queryInterface.dropTable('Arrets');
   }
 };

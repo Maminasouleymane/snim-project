@@ -9,7 +9,7 @@ import Select from "@material-ui/core/Select";
 import Icon from "@material-ui/core/Icon";
 import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -87,12 +87,12 @@ const AjouterArret = () => {
   };
 
   const SendData = () => {
-    axios.post("http://localhost:3009/ajouter_arret", data).then(
+    axios.post("http://localhost:3009/addArret", data).then(
       (response) => {
         console.log(response);
         window.confirm(response.data); // need to add some confirmation in here
-        history.push("/historique_arret")
-        location.reload()
+        history.push("/historique_arret");
+        location.reload();
       },
       (error) => {
         console.log(error);

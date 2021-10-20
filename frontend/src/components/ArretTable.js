@@ -108,13 +108,13 @@ const ArretTable = (props) => {
                       date,
                       groupe,
                       defaut,
-                      code_defaut,
-                      type_defaut,
+                      codeDefaut,
+                      typeDefaut,
                       section,
-                      h_debut,
-                      h_fin,
-                      duree_hh_mm,
-                      duree_heure,
+                      dateDebut,
+                      dateFin,
+                      dureeHM,
+                      duree,
                     },
                     index
                   ) => (
@@ -124,13 +124,13 @@ const ArretTable = (props) => {
                       </TableCell>
                       <TableCell>{groupe}</TableCell>
                       <TableCell>{defaut}</TableCell>
-                      <TableCell>{code_defaut}</TableCell>
-                      <TableCell>{type_defaut}</TableCell>
+                      <TableCell>{codeDefaut}</TableCell>
+                      <TableCell>{typeDefaut}</TableCell>
                       <TableCell>{section}</TableCell>
-                      <TableCell>{h_debut}</TableCell>
-                      <TableCell>{h_fin}</TableCell>
-                      <TableCell>{duree_hh_mm}</TableCell>
-                      <TableCell>{duree_heure}</TableCell>
+                      <TableCell>{dateDebut}</TableCell>
+                      <TableCell>{dateFin}</TableCell>
+                      <TableCell>{dureeHM}</TableCell>
+                      <TableCell>{duree}</TableCell>
                     </TableRow>
                   )
                 )}

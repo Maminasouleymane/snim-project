@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Liaisons', {
+    await queryInterface.createTable('Groupes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,19 +11,28 @@ module.exports = {
       date: {
         type: Sequelize.STRING
       },
-      consomateur: {
+      numero: {
         type: Sequelize.STRING
       },
-      ea_d: {
+      ep: {
+        type: Sequelize.FLOAT
+      },
+      hmarche: {
+        type: Sequelize.FLOAT
+      },
+      np: {
         type: Sequelize.INTEGER
       },
-      er_d: {
+      huile: {
         type: Sequelize.INTEGER
       },
-      ea_f: {
+      comb: {
         type: Sequelize.INTEGER
       },
-      er_f: {
+      ap: {
+        type: Sequelize.INTEGER
+      },
+      ai: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -37,6 +46,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Liaisons');
+    await queryInterface.dropTable('Groupes');
   }
 };
