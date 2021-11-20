@@ -48,61 +48,60 @@ const EpGraphe = (props) => {
   if (props.groupe.length === 0) {
     return (
       <div>
-        <Loading />;
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <VictoryChart>
-          <VictoryGroup offset={20} colorScale={"qualitative"}>
-            <VictoryBar
-              labels={({ datum }) => datum.y}
-              style={{
-                labels: { fill: "green", fontSize: 8, fontStyle: "Bold" },
-              }}
-              labelComponent={<VictoryLabel dy={-10} size={5} />}
-              data={[
-                { x: 1, y: gr3Today },
-                { x: 2, y: gr7Today },
-                { x: 3, y: gr8Today },
-                { x: 4, y: gr10Today },
-                { x: 5, y: gr10Today },
-                ,
-                { x: 6, y: totalDeLaJourne },
-              ]} // daily value
-            />
-            <VictoryBar
-              labels={({ datum }) => datum.y}
-              style={{ labels: { fill: "blue", fontSize: 8 } }}
-              labelComponent={<VictoryLabel dy={-10} />}
-              data={[
-                { x: 1, y: cumG3 },
-                { x: 2, y: cumG7 },
-                { x: 3, y: cumG8 },
-                { x: 4, y: cumG10 },
-                { x: 5, y: cumG10 },
-                { x: 6, y: totalMansuel },
-              ]} //monthly value
-            />
-            <VictoryAxis
-              tickValues={["G3", "G7", "G8", "G10", "EO", "Total"]}
-              label="Energie Produite (Mwh)"
-            />
-            <VictoryAxis
-              dependentAxis
-              tickValues={[
-                0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100,
-                1200, 1300, 1400, 1500,
-              ]}
-              label=""
-              style={{ labels: { fill: "blue" } }}
-            />
-          </VictoryGroup>
-        </VictoryChart>
+        <h2> Empty EREA </h2>
       </div>
     );
   }
+  return (
+    <div>
+      <VictoryChart>
+        <VictoryGroup offset={20} colorScale={"qualitative"}>
+          <VictoryBar
+            labels={({ datum }) => datum.y}
+            style={{
+              labels: { fill: "green", fontSize: 8, fontStyle: "Bold" },
+            }}
+            labelComponent={<VictoryLabel dy={-10} size={5} />}
+            data={[
+              { x: 1, y: gr3Today },
+              { x: 2, y: gr7Today },
+              { x: 3, y: gr8Today },
+              { x: 4, y: gr10Today },
+              { x: 5, y: gr10Today },
+              ,
+              { x: 6, y: totalDeLaJourne },
+            ]} // daily value
+          />
+          <VictoryBar
+            labels={({ datum }) => datum.y}
+            style={{ labels: { fill: "blue", fontSize: 8 } }}
+            labelComponent={<VictoryLabel dy={-10} />}
+            data={[
+              { x: 1, y: cumG3 },
+              { x: 2, y: cumG7 },
+              { x: 3, y: cumG8 },
+              { x: 4, y: cumG10 },
+              { x: 5, y: cumG10 },
+              { x: 6, y: totalMansuel },
+            ]} //monthly value
+          />
+          <VictoryAxis
+            tickValues={["G3", "G7", "G8", "G10", "EO", "Total"]}
+            label="Energie Produite (Mwh)"
+          />
+          <VictoryAxis
+            dependentAxis
+            tickValues={[
+              0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
+              1300, 1400, 1500,
+            ]}
+            label=""
+            style={{ labels: { fill: "blue" } }}
+          />
+        </VictoryGroup>
+      </VictoryChart>
+    </div>
+  );
 };
 const mapStateToProps = (state) => {
   const { groupe, filters } = state;

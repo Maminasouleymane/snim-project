@@ -1,18 +1,16 @@
 import React, { useState, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import EpGraphe from "./EpGraphe";
-import RendementGraphe from "./RendementGraphe";
-import MtbfGraphe from "./MtbfGraphe";
-import SpHuileGraphe from "./SpHuileGraphe";
-import TmarcheGraphe from "./TmarcheGraphe";
+import EmptyEpGraphe from "./EmptyEpGraphe";
+import EmptyRendementGraphe from "./EmptyRendementGraphe";
+import EmptyMtbfGraphe from "./EmptyMtbfGraphe";
+import EmptySpHuileGraphe from "./EmptySpHuileGraphe";
+import EmptyTmarcheGraphe from "./EmptyTmarcheGraphe";
 import ArretGraphe from "./ArretGraphe";
 import LiaisonGraphe from "./LiaisonGraphe";
-import SpCombustibleGraphe from "./SpCombustibleGraphe";
+import EmptySpCombustibleGraphe from "./EmptySpCombustibleGraphe";
 import moment from "moment";
 
 const Index = () => {
-  // const months = moment.months();
-
   const currentMonth = moment().format("MMMM");
   console.log("im the current month", currentMonth);
   const [months, setMonths] = useState(moment.months());
@@ -39,22 +37,27 @@ const Index = () => {
         {moment().format("DD/MM/YYYY")}{" "}
       </h1>
       <div ref={componentRef}>
-        <div className="wrapper1">
-          <EpGraphe />
-          <RendementGraphe />
-        </div>
-
-        <div className="wrapper2">
-          <MtbfGraphe />
-          <TmarcheGraphe />
-        </div>
-
-        <div className="wrapper3">
-          <SpHuileGraphe />
-          <SpCombustibleGraphe />
-        </div>
-
         <div className="wrapper4">
+          <div className="wrapper1">
+            <EmptyRendementGraphe />
+            <EmptyEpGraphe />
+          </div>
+          <div className="wrapper2">
+            <EmptyMtbfGraphe />
+            <EmptyTmarcheGraphe />
+          </div>
+          <div className="wrapper3">
+            <EmptySpHuileGraphe />
+            <EmptySpCombustibleGraphe />
+          </div>
+          {/*
+      
+        <div className="wrapper3">
+          <EmptySpHuileGraphe />
+          <EmptySpCombustibleGraphe />
+        </div>
+
+        */}
           <ArretGraphe />
           <LiaisonGraphe />
         </div>

@@ -16,8 +16,6 @@ const ScrollButton = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-      /* you can also use 'auto' behaviour
-		in place of 'smooth' */
     });
   };
 
@@ -28,7 +26,11 @@ const ScrollButton = () => {
       <img
         src="./images/back.jpg"
         onClick={scrollToTop}
-        style={{ display: visible ? "inline" : "none"  , height: "66px" , width: "66px"}}
+        style={{
+          display: visible ? "inline" : "none",
+          height: "66px",
+          width: "66px",
+        }}
       />
     </div>
   );
