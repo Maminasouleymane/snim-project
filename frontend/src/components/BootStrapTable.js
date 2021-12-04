@@ -18,21 +18,6 @@ const columns = [
   {
     dataField: "ep",
     text: "EP Mwh",
-    // validator: (newValue, row, column) => {
-    //   if (isNaN(newValue)) {
-    //     return {
-    //       valid: false,
-    //       message: "Price should be numeric",
-    //     };
-    //   }
-    //   if (typeof newValue === "string") {
-    //     return {
-    //       valid: false,
-    //       message: "champ doit etre un chiffre",
-    //     };
-    //   }
-    //   return true;
-    // },
   },
   {
     dataField: "hmarche",
@@ -117,7 +102,7 @@ const groupes = [
   },
 ];
 
-const GroupesTables = (props) => {
+const GroupesTables = () => {
   const history = useHistory();
   const sendToServer = () => {
     axios.post("http://localhost:3009/add_groupe", groupes).then(

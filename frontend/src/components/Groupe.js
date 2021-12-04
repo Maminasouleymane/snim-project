@@ -1,6 +1,6 @@
 import React from "react";
 import BootStrapTable from "./BootStrapTable";
-import OptionModal from "./Modal"
+// import OptionModal from "./Modal"
 
 const Groupe = () => {
   return (

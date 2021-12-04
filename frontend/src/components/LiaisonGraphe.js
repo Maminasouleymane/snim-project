@@ -70,9 +70,9 @@ const useStyles = makeStyles((theme) => ({
 const LiaisonGraphe = (props) => {
   const classes = useStyles();
 
-const yesterDay = moment().subtract(4 , "day").format("DD/MM/YYYY")
+  const yesterDay = moment().subtract(4, "day").format("DD/MM/YYYY");
 
-const newDate = props.info.filter((liaison) => liaison.date === yesterDay  )
+  const newDate = props.info.filter((liaison) => liaison.date === yesterDay);
   const consomateur = props.info.reduce(
     (result, element) => {
       result[element.consomateur === "snim" ? 0 : 1].push(element); // Determine and push to small/large arr
@@ -116,16 +116,16 @@ const newDate = props.info.filter((liaison) => liaison.date === yesterDay  )
               <TableBody>
                 {newDate.map(
                   (
-                    { date, consomateur, ea_d, ea_f, er_d, er_f, ea, er },
+                    { date, consomateur, ead, eaf, erd, erf, ea, er },
                     index
                   ) => (
                     <StyledTableRow key={index}>
                       <StyledTableCell>{date}</StyledTableCell>
                       <StyledTableCell>{consomateur}</StyledTableCell>
-                      <StyledTableCell>{ea_d}</StyledTableCell>
-                      <StyledTableCell>{ea_f}</StyledTableCell>
-                      <StyledTableCell>{er_d}</StyledTableCell>
-                      <StyledTableCell>{er_f}</StyledTableCell>
+                      <StyledTableCell>{ead}</StyledTableCell>
+                      <StyledTableCell>{eaf}</StyledTableCell>
+                      <StyledTableCell>{erd}</StyledTableCell>
+                      <StyledTableCell>{erf}</StyledTableCell>
                       <StyledTableCell>{ea}</StyledTableCell>
                       <StyledTableCell>{er}</StyledTableCell>
                     </StyledTableRow>
@@ -182,7 +182,6 @@ const newDate = props.info.filter((liaison) => liaison.date === yesterDay  )
   );
 };
 const mapStateToProps = (state) => {
-
   return {
     info: selectedData(state.info, state.filters),
   };

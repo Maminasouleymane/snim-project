@@ -13,7 +13,7 @@ import RendementGraphe from "./RendementGraphe";
 const EmptyRendementGraphe = (props) => {
   if (props.groupe.length === 0) {
     return (
-      <div>
+      <div className="emptyGraphe">
         <VictoryChart>
           <VictoryGroup offset={20} colorScale={"qualitative"}>
             <VictoryBar

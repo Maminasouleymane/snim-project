@@ -62,28 +62,36 @@ const SmlVersSnim = () => {
     );
   };
   return (
-    <div style={{ marginTop: "15rem", marginLeft: "10rem", width: "80%" }}>
-      <SaisieHeader name="la liason SNIM/SML" />
-      <BootstrapTable
-        keyField="consomateur"
-        data={liaison}
-        columns={columns}
-        cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
-        striped
-        hover
-        condensed
-      />
-      <button
-        className="btn btn-primary"
-        style={{
-          float: "right",
-          marginBottom: "4rem",
-          width: "17rem",
-        }}
-        onClick={sendToServer}
-      >
-        Enregistrer
-      </button>
+    <div className="groupeContainer">
+      <div className="container">
+        <div className="">
+          <SaisieHeader name="la liason SNIM/SML" />
+        </div>
+
+        <div className="dataTable">
+          <BootstrapTable
+            keyField="consomateur"
+            data={liaison}
+            columns={columns}
+            cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
+            striped
+            hover
+            condensed
+          />
+        </div>
+
+        <button
+          className="btn btn-primary"
+          style={{
+            float: "right",
+            marginBottom: "4rem",
+            width: "17rem",
+          }}
+          onClick={sendToServer}
+        >
+          Enregistrer
+        </button>
+      </div>
     </div>
   );
 };

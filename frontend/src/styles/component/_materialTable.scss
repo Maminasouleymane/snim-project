@@ -8,9 +8,10 @@ td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-sizeSmall{
     font-size: medium;
     text-align: center ;
     font-family: ui-rounded;
+
 }
 
-.mui-component-select-groupes.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-input.MuiInput-input
+.mui-component-select-groupes.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-input.MuiInput-input.MuiTableCell-root 
 {
     background-color: lightseagreen;
     text-align: center;
@@ -35,4 +36,16 @@ a{
 
 div.MuiToolbar-root.MuiToolbar-regular.makeStyles-toolbar-4.MuiToolbar-gutters{
     background-color: darkslategrey;
+}
+
+td.MuiTableCell-root MuiTableCell-alignLeft MuiTableCell-sizeSmall{
+    background-color: lightseagreen;
+    text-align: center;
+    font-size: medium;
+}
+
+.forcedHeader {
+    background-color: #5F9EA0;
+    text-align: center;
+    font-size: medium;
 }

@@ -17,7 +17,6 @@ export const sendGroupe = (groupes) => {
   };
 };
 
-// REMOVE_EXPENSE
 export const filterGroupe = ({ numero = "GR3" } = {}) => ({
   type: "FILTER_GROUPE",
   numero,

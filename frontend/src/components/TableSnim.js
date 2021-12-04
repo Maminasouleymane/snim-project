@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { setStartDate, setEndDate } from "../actions/filters";
 import selectedData from "../selectors/info";
 import "react-dates/initialize";
-// import TestTable from "./TestTable";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import ScrollButton from "./ScrollButton";
@@ -39,10 +38,10 @@ const TableSnim = (props) => {
     moment.locale("fr");
   });
   return (
-    <div className="snimsml">
-      <div className="calender">
+    <div className="mainContainer">
+      <div className="titleAndCalanderContainer">
         <h1>La liaison SNIM/SML :</h1>
-        <div className="dateRange">
+        <div>
           <DateRangePicker
             startDate={props.filters.startDate}
             startDateId="nlknklnknlk3"
@@ -59,9 +58,8 @@ const TableSnim = (props) => {
           />
         </div>
       </div>
-      
 
-      <div className="">
+      <div className="contenTable">
         <Snim data={props.info} />
       </div>
       <ScrollButton />

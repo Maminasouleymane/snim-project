@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
+    backgroundColor: "#0D6EFD",
   },
 }));
 
@@ -102,7 +103,7 @@ const AjouterArret = () => {
 
   return (
     <div className="arretBox">
-      <h1>Signaler un arrêt</h1>
+      <h1 style={{ fontFamily: "Helvetica" }}>Signaler un arrêt</h1>
       <form className="formBox" noValidate>
         <InputLabel id="demo-simple-select-label">Groupe</InputLabel>
         <Select

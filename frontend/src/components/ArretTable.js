@@ -26,12 +26,13 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightBold,
   },
   content: {
-    fontSize: theme.typography.pxToRem(14),
-    fontWeight: theme.typography.fontWeightRegular,
-    textAlign: "left",
-    marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    minWidth: "100%",
+    // fontSize: theme.typography.pxToRem(14),
+    // fontWeight: theme.typography.fontWeightRegular,
+    // textAlign: "left",
+    // marginTop: theme.spacing.unit * 3,
+    // marginLeft: theme.spacing.unit * 3,
+    // marginRight: theme.spacing.unit * 3,
   },
   table: {
     minWidth: 650,
@@ -64,10 +65,10 @@ const ArretTable = (props) => {
   };
 
   return (
-    <div className="tableBox">
-      <div className="calender">
+    <div className="mainContainer">
+      <div className="titleAndCalanderContainer">
         <h1>Historique des Arréts :</h1>
-        <div className="dateRange">
+        <div>
           <DateRangePicker
             startDate={props.filters.startDate}
             startDateId="startDate1"
@@ -84,61 +85,62 @@ const ArretTable = (props) => {
           />
         </div>
       </div>
-
-      <Grid container spacing={3}>
-        <Grid item xs={12} className={classes.content}>
-          <TableContainer component={Paper}>
-            <Table id="split_table" size="small">
-              <TableHead>
-                <TableCell align="left">date</TableCell>
-                <TableCell align="left">groupe</TableCell>
-                <TableCell align="left">défaut</TableCell>
-                <TableCell align="left">code défaut</TableCell>
-                <TableCell align="left">type défaut</TableCell>
-                <TableCell align="left">section</TableCell>
-                <TableCell align="left">h_début</TableCell>
-                <TableCell align="left">h_fin</TableCell>
-                <TableCell align="left">durée(heure: minute)</TableCell>
-                <TableCell align="left">durée (heure)</TableCell>
-              </TableHead>
-              <TableBody>
-                {props.arret.map(
-                  (
-                    {
-                      date,
-                      groupe,
-                      defaut,
-                      codeDefaut,
-                      typeDefaut,
-                      section,
-                      dateDebut,
-                      dateFin,
-                      dureeHM,
-                      duree,
-                    },
-                    index
-                  ) => (
-                    <TableRow key={index}>
-                      <TableCell>
-                        {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
-                      </TableCell>
-                      <TableCell>{groupe}</TableCell>
-                      <TableCell>{defaut}</TableCell>
-                      <TableCell>{codeDefaut}</TableCell>
-                      <TableCell>{typeDefaut}</TableCell>
-                      <TableCell>{section}</TableCell>
-                      <TableCell>{dateDebut}</TableCell>
-                      <TableCell>{dateFin}</TableCell>
-                      <TableCell>{dureeHM}</TableCell>
-                      <TableCell>{duree}</TableCell>
-                    </TableRow>
-                  )
-                )}
-              </TableBody>
-            </Table>
-          </TableContainer>
+      <div className="contenTable">
+        <Grid container spacing={3}>
+          <Grid item xs={12} className={classes.content}>
+            <TableContainer component={Paper}>
+              <Table id="split_table" size="small">
+                <TableHead>
+                  <TableCell align="left">date</TableCell>
+                  <TableCell align="left">groupe</TableCell>
+                  <TableCell align="left">défaut</TableCell>
+                  <TableCell align="left">code défaut</TableCell>
+                  <TableCell align="left">type défaut</TableCell>
+                  <TableCell align="left">section</TableCell>
+                  <TableCell align="left">h_début</TableCell>
+                  <TableCell align="left">h_fin</TableCell>
+                  <TableCell align="left">durée(heure: minute)</TableCell>
+                  <TableCell align="left">durée (heure)</TableCell>
+                </TableHead>
+                <TableBody>
+                  {props.arret.map(
+                    (
+                      {
+                        date,
+                        groupe,
+                        defaut,
+                        codeDefaut,
+                        typeDefaut,
+                        section,
+                        dateDebut,
+                        dateFin,
+                        dureeHM,
+                        duree,
+                      },
+                      index
+                    ) => (
+                      <TableRow key={index}>
+                        <TableCell>
+                          {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
+                        </TableCell>
+                        <TableCell>{groupe}</TableCell>
+                        <TableCell>{defaut}</TableCell>
+                        <TableCell>{codeDefaut}</TableCell>
+                        <TableCell>{typeDefaut}</TableCell>
+                        <TableCell>{section}</TableCell>
+                        <TableCell>{dateDebut}</TableCell>
+                        <TableCell>{dateFin}</TableCell>
+                        <TableCell>{dureeHM}</TableCell>
+                        <TableCell>{duree}</TableCell>
+                      </TableRow>
+                    )
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };

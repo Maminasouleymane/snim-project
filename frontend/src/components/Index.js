@@ -33,12 +33,12 @@ const Index = () => {
       <button onClick={handlePrint}> Imprimer </button> */}
       <h1> PRINCIPAUX INDOCATEURS DE PERFORMANCES DE LA CENTRALE NDB </h1>
       <h1>
-        Periode du: {moment().startOf("month").format("DD/MM/YYYY")} au{" "}
+        Période du: {moment().startOf("month").format("DD/MM/YYYY")} au{" "}
         {moment().format("DD/MM/YYYY")}{" "}
       </h1>
       <div ref={componentRef}>
-        <div className="wrapper4">
-          <div className="wrapper1">
+        <div>
+          <div className="ctn">
             <EmptyRendementGraphe />
             <EmptyEpGraphe />
           </div>
@@ -50,16 +50,11 @@ const Index = () => {
             <EmptySpHuileGraphe />
             <EmptySpCombustibleGraphe />
           </div>
-          {/*
-      
-        <div className="wrapper3">
-          <EmptySpHuileGraphe />
-          <EmptySpCombustibleGraphe />
-        </div>
+          <div className="ctn1">
+            <ArretGraphe />
 
-        */}
-          <ArretGraphe />
-          <LiaisonGraphe />
+            <LiaisonGraphe />
+          </div>
         </div>
       </div>
     </div>

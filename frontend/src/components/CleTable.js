@@ -18,24 +18,16 @@ import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import groupeFilter from "../selectors/groupe";
 import selectedData from "../selectors/info";
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "90%",
-    marginTop: 30,
+    width: "100%",
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightBold,
   },
   content: {
-    maxWidth: "95%",
-    fontSize: theme.typography.pxToRem(14),
-    fontWeight: theme.typography.fontWeightRegular,
-    textAlign: "left",
-    marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    minWidth: "100%",
   },
   table: {
     minWidth: 650,
@@ -43,41 +35,17 @@ const useStyles = makeStyles((theme) => ({
   tableheader: {
     fontWeight: theme.typography.fontWeightBold,
     color: "#ffffff",
-    background: "blue",
+    background: "#3f51b5",
   },
   tableCell: {
     background: "#f50057",
-    maxWidth: "30px",
   },
   button: {
     fontSize: "12px",
     minWidth: 100,
   },
-  sticky: {
-    position: "-webkit-sticky",
-    position: "sticky",
-    background: "#fff",
-    left: 0,
-    zIndex: 1,
-  },
 }));
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
 const CleTable = (props) => {
   const classes = useStyles();
 
@@ -114,7 +82,7 @@ const CleTable = (props) => {
   let dispo = 0;
   let cdispo = 0;
 
-  // ! this how should i use my selectors
+  // ! this is how should i use my selectors
   const testing = (arr) => {
     return arr.filter((item) => item.np === 4343);
   };
@@ -168,10 +136,10 @@ const CleTable = (props) => {
 
   useEffect(() => moment().local("fr"));
   return (
-    <div className="tableBox">
-      <div className="calender">
+    <div className="mainContainer">
+      <div className="titleAndCalanderContainer">
         <h1>CLE </h1>
-        <div className="dateRange">
+        <div>
           <DateRangePicker
             startDate={props.filters.startDate}
             startDateId="nlknklnknlk3"
@@ -188,134 +156,190 @@ const CleTable = (props) => {
           />
         </div>
       </div>
-      <Grid container spacing={3} className={classes.content}>
-        <Grid item xs={12}>
-          <TableContainer component={Paper}>
-            <Table
-              className={classes.table}
-              stickyHeader
-              aria-label="sticky table"
-              size="small"
-            >
-              <TableCell className={classes.sticky}>date</TableCell>
-              <TableCell align="left">EP</TableCell>
-              <TableCell align="left">CEP</TableCell>
-              <TableCell align="left">HMarche</TableCell>
-              <TableCell align="left">CHMarche</TableCell>
-              <TableCell align="left">NP</TableCell>
-              <TableCell align="left">CNP</TableCell>
-              <TableCell align="left">Huile</TableCell>
-              <TableCell align="left">CHuile</TableCell>
-              <TableCell align="left">Comb</TableCell>
-              <TableCell align="left">CComb</TableCell>
-              <TableCell align="left">AP</TableCell>
-              <TableCell align="left">AP</TableCell>
-              <TableCell align="left">AI</TableCell>
-              <TableCell align="left">CAI</TableCell>
-              <TableCell align="left">Rendement</TableCell>
-              <TableCell align="left">CRendement</TableCell>
-              <TableCell align="left">Tmarche</TableCell>
-              <TableCell align="left">CTmarche</TableCell>
-              <TableCell align="left">MTBF</TableCell>
-              <TableCell align="left">CMTBF</TableCell>
-              <TableCell align="left">SPhuile</TableCell>
-              <TableCell align="left">CSPhuile</TableCell>
-              <TableCell align="left">Dispo</TableCell>
-              <TableCell align="left">CDispo</TableCell>
+      <div className="contenTable">
+        <Grid container spacing={3} className={classes.content}>
+          <Grid item xs={12}>
+            <TableContainer component={Paper}>
+              <Table
+                className={classes.table}
+                stickyHeader
+                aria-label="sticky table"
+                size="small"
+              >
+                <TableCell
+                  className="forcedHeader"
+                  style={{ backgroundColor: "#5F9EA0" }}
+                  className={classes.sticky}
+                >
+                  date
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  EP
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CEP
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  HMarche
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CHMarche
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  NP
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CNP
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  Huile
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CHuile
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  Comb
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CComb
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  AP
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  AP
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  AI
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CAI
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  Rendement
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CRendement
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  Tmarche
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CTmarche
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  MTBF
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CMTBF
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  SPhuile
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CSPhuile
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  Dispo
+                </TableCell>
+                <TableCell className="forcedHeader" align="left">
+                  CDispo
+                </TableCell>
 
-              <TableBody>
-                {cleData.map(
-                  ({ date, ep, hmarche, np, huile, comb, ap, ai }, index) => (
-                    <TableRow key={index}>
-                      <TableCell className={classes.sticky}>
-                        {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
-                      </TableCell>
-                      <TableCell>{ep}</TableCell>
-                      <TableCell>{(cep += ep)}</TableCell>
-                      <TableCell>{hmarche}</TableCell>
-                      <TableCell>{(chmarche += hmarche)}</TableCell>
-                      <TableCell>{np}</TableCell>
-                      <TableCell>{(cnp += np)}</TableCell>
-                      <TableCell>{huile}</TableCell>
-                      <TableCell>{(chuile += huile)}</TableCell>
-                      <TableCell>{comb}</TableCell>
-                      <TableCell>{(ccomb += comb)}</TableCell>
-                      <TableCell>{ap}</TableCell>
-                      <TableCell>{(cap += ap)}</TableCell>
-                      <TableCell>{ai}</TableCell>
-                      <TableCell>{(cai += ai)}</TableCell>
-                      <TableCell>
-                        {
-                          (rend =
-                            ep && hmarche !== 0
-                              ? Number((ep / (4 * hmarche)).toFixed(3))
-                              : 0)
-                        }
-                      </TableCell>
-                      <TableCell>
-                        {
-                          (crend =
-                            cep && chmarche !== 0
-                              ? Number((cep / (4 * chmarche)).toFixed(3))
-                              : 0)
-                        }
-                      </TableCell>
-                      <TableCell>
-                        {
-                          (tmarche =
-                            hmarche !== 0
-                              ? Number(
-                                  (hmarche / (24 - (ai + ap)) / 4).toFixed(3)
-                                )
-                              : 0)
-                        }
-                      </TableCell>
-                      <TableCell>{(ctmarche += tmarche)}</TableCell>
-                      <TableCell>
-                        {
-                          (mtbf =
-                            hmarche && np !== 0
-                              ? Number((hmarche / np).toFixed(3))
-                              : hmarche)
-                        }
-                      </TableCell>
-                      <TableCell>{(cmtbf += mtbf)}</TableCell>
-                      <TableCell>
-                        {
-                          (sphuile =
-                            huile && ep !== 0
-                              ? Number((huile / ep).toFixed(3))
-                              : 0)
-                        }
-                      </TableCell>
-                      <TableCell>
-                        {
-                          (csphuile =
-                            chuile && cep !== 0
-                              ? Number((chuile / cep).toFixed(3))
-                              : 0)
-                        }
-                      </TableCell>
-                      <TableCell>
-                        {Number(((24 * 4 - (ap + ai)) / 24 / 4).toFixed(3)) *
-                          100 +
-                          "%"}
-                      </TableCell>
-                      <TableCell>
-                        {
-                          (cdispo += Number(
-                            ((24 * 4 - (ap + ai)) / 24 / 4).toFixed(3)
-                          ))
-                        }
-                      </TableCell>
-                    </TableRow>
-                  )
-                )}
-              </TableBody>
-            </Table>
-          </TableContainer>
+                <TableBody>
+                  {cleData.map(
+                    ({ date, ep, hmarche, np, huile, comb, ap, ai }, index) => (
+                      <TableRow key={index}>
+                        <TableCell className={classes.sticky}>
+                          {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
+                        </TableCell>
+                        <TableCell>{ep}</TableCell>
+                        <TableCell>{(cep += ep)}</TableCell>
+                        <TableCell>{hmarche}</TableCell>
+                        <TableCell>{(chmarche += hmarche)}</TableCell>
+                        <TableCell>{np}</TableCell>
+                        <TableCell>{(cnp += np)}</TableCell>
+                        <TableCell>{huile}</TableCell>
+                        <TableCell>{(chuile += huile)}</TableCell>
+                        <TableCell>{comb}</TableCell>
+                        <TableCell>{(ccomb += comb)}</TableCell>
+                        <TableCell>{ap}</TableCell>
+                        <TableCell>{(cap += ap)}</TableCell>
+                        <TableCell>{ai}</TableCell>
+                        <TableCell>{(cai += ai)}</TableCell>
+                        <TableCell>
+                          {
+                            (rend =
+                              ep && hmarche !== 0
+                                ? Number((ep / (4 * hmarche)).toFixed(3))
+                                : 0)
+                          }
+                        </TableCell>
+                        <TableCell>
+                          {
+                            (crend =
+                              cep && chmarche !== 0
+                                ? Number((cep / (4 * chmarche)).toFixed(3))
+                                : 0)
+                          }
+                        </TableCell>
+                        <TableCell>
+                          {
+                            (tmarche =
+                              hmarche !== 0
+                                ? Number(
+                                    (hmarche / (24 - (ai + ap)) / 4).toFixed(3)
+                                  )
+                                : 0)
+                          }
+                        </TableCell>
+                        <TableCell>{(ctmarche += tmarche)}</TableCell>
+                        <TableCell>
+                          {
+                            (mtbf =
+                              hmarche && np !== 0
+                                ? Number((hmarche / np).toFixed(3))
+                                : hmarche)
+                          }
+                        </TableCell>
+                        <TableCell>{(cmtbf += mtbf)}</TableCell>
+                        <TableCell>
+                          {
+                            (sphuile =
+                              huile && ep !== 0
+                                ? Number((huile / ep).toFixed(3))
+                                : 0)
+                          }
+                        </TableCell>
+                        <TableCell>
+                          {
+                            (csphuile =
+                              chuile && cep !== 0
+                                ? Number((chuile / cep).toFixed(3))
+                                : 0)
+                          }
+                        </TableCell>
+                        <TableCell>
+                          {Number(((24 * 4 - (ap + ai)) / 24 / 4).toFixed(3)) *
+                            100 +
+                            "%"}
+                        </TableCell>
+                        <TableCell>
+                          {
+                            (cdispo += Number(
+                              ((24 * 4 - (ap + ai)) / 24 / 4).toFixed(3)
+                            ))
+                          }
+                        </TableCell>
+                      </TableRow>
+                    )
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };

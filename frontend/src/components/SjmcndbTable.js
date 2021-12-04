@@ -187,31 +187,84 @@ const SjmcndbTable = (props) => {
               aria-label="sticky table"
               size="small"
             >
-              <TableCell className={classes.sticky}>date</TableCell>
-              <TableCell align="left">EP</TableCell>
-              <TableCell align="left">CEP</TableCell>
-              <TableCell align="left">HMarche</TableCell>
-              <TableCell align="left">CHMarche</TableCell>
-              <TableCell align="left">NP</TableCell>
-              <TableCell align="left">CNP</TableCell>
-              <TableCell align="left">Huile</TableCell>
-              <TableCell align="left">CHuile</TableCell>
-              <TableCell align="left">Comb</TableCell>
-              <TableCell align="left">CComb</TableCell>
-              <TableCell align="left">AP</TableCell>
-              <TableCell align="left">CAP</TableCell>
-              <TableCell align="left">AI</TableCell>
-              <TableCell align="left">CAI</TableCell>
-              <TableCell align="left">Rendement</TableCell>
-              <TableCell align="left">CRendement</TableCell>
-              <TableCell align="left">Tmarche</TableCell>
-              <TableCell align="left">CTmarche</TableCell>
-              <TableCell align="left">MTBF</TableCell>
-              <TableCell align="left">CMTBF</TableCell>
-              <TableCell align="left">SPhuile</TableCell>
-              <TableCell align="left">CSPhuile</TableCell>
-              <TableCell align="left">Dispo</TableCell>
-              <TableCell align="left">CDispo</TableCell>
+              <TableCell
+                style={{ backgroundColor: "#5F9EA0" }}
+                className={classes.sticky}
+              >
+                date
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                EP
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CEP
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                HMarche
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CHMarche
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                NP
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CNP
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                Huile
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CHuile
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                Comb
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CComb
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                AP
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CAP
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                AI
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CAI
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                Rendement
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CRendement
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                Tmarche
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CTmarche
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                MTBF
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CMTBF
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                SPhuile
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CSPhuile
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                Dispo
+              </TableCell>
+              <TableCell className="forcedHeader" align="left">
+                CDispo
+              </TableCell>
 
               <TableBody>
                 {grp.map(

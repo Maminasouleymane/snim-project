@@ -47,22 +47,34 @@ const OperationTable = () => {
   };
 
   return (
-    <div className="operationContainer">
-      <SaisieHeader name={"Les operations"} />
-      <div className="OperationTable">
-        <BootstrapTable
-          keyField="operation"
-          style={{ width: "70%" }}
-          data={operation}
-          columns={columns}
-          cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
-          striped
-          hover
-          condensed
-        />
-      </div>
-      <div className="btnContainer">
-        <button className="btn btn-primary" onClick={sendToServer}>
+    <div className="groupeContainer">
+      <div className="container">
+        <div className="">
+          <SaisieHeader name={"Les operations"} />
+        </div>
+
+        <div className="dataTable">
+          <BootstrapTable
+            keyField="operation"
+            style={{ width: "70%" }}
+            data={operation}
+            columns={columns}
+            cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
+            striped
+            hover
+            condensed
+          />
+        </div>
+
+        <button
+          className="btn btn-primary"
+          onClick={sendToServer}
+          style={{
+            float: "right",
+            marginBottom: "4rem",
+            width: "17rem",
+          }}
+        >
           Enregistrer
         </button>
       </div>

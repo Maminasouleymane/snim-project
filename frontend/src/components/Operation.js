@@ -26,12 +26,13 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightBold,
   },
   content: {
-    fontSize: theme.typography.pxToRem(14),
-    fontWeight: theme.typography.fontWeightRegular,
-    textAlign: "left",
-    marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    minWidth: "100%",
+    // fontSize: theme.typography.pxToRem(14),
+    // fontWeight: theme.typography.fontWeightRegular,
+    // textAlign: "left",
+    // marginTop: theme.spacing.unit * 3,
+    // marginLeft: theme.spacing.unit * 3,
+    // marginRight: theme.spacing.unit * 3,
   },
   table: {
     minWidth: 650,
@@ -67,10 +68,10 @@ const ArretTable = (props) => {
   };
 
   return (
-    <div className="tableBox">
-      <div className="calender">
+    <div className="mainContainer">
+      <div className="titleAndCalanderContainer">
         <h1>Historique des Operations:</h1>
-        <div className="dateRange">
+        <div>
           <DateRangePicker
             startDate={props.filters.startDate}
             startDateId="nlknklnknlk3"
@@ -87,39 +88,40 @@ const ArretTable = (props) => {
           />
         </div>
       </div>
-
-      <Grid container spacing={3}>
-        <Grid item xs={12} className={classes.content}>
-          <TableContainer component={Paper}>
-            <Table id="split_table" size="small">
-              <TableHead>
-                <TableCell align="left">date</TableCell>
-                <TableCell align="left">OP1</TableCell>
-                <TableCell align="left">COP1</TableCell>
-                <TableCell align="left">OP2</TableCell>
-                <TableCell align="left">COP2</TableCell>
-                <TableCell align="left">OP3</TableCell>
-                <TableCell align="left">COP3</TableCell>
-              </TableHead>
-              <TableBody>
-                {props.operation.map(({ date, op1, op2, op3 }, index) => (
-                  <TableRow key={index}>
-                    <TableCell>
-                      {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
-                    </TableCell>
-                    <TableCell>{op1}</TableCell>
-                    <TableCell>{(cop1 += op1)}</TableCell>
-                    <TableCell>{op2}</TableCell>
-                    <TableCell>{(cop2 += op2)}</TableCell>
-                    <TableCell>{op3}</TableCell>
-                    <TableCell>{(cop3 += op3)}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+      <div className="contentTable" style={{ width: "80%" }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} className={classes.content}>
+            <TableContainer component={Paper}>
+              <Table id="split_table" size="small">
+                <TableHead>
+                  <TableCell align="left">date</TableCell>
+                  <TableCell align="left">OP1</TableCell>
+                  <TableCell align="left">COP1</TableCell>
+                  <TableCell align="left">OP2</TableCell>
+                  <TableCell align="left">COP2</TableCell>
+                  <TableCell align="left">OP3</TableCell>
+                  <TableCell align="left">COP3</TableCell>
+                </TableHead>
+                <TableBody>
+                  {props.operation.map(({ date, op1, op2, op3 }, index) => (
+                    <TableRow key={index}>
+                      <TableCell>
+                        {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
+                      </TableCell>
+                      <TableCell>{op1}</TableCell>
+                      <TableCell>{(cop1 += op1)}</TableCell>
+                      <TableCell>{op2}</TableCell>
+                      <TableCell>{(cop2 += op2)}</TableCell>
+                      <TableCell>{op3}</TableCell>
+                      <TableCell>{(cop3 += op3)}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };

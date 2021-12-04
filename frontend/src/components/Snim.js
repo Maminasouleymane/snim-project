@@ -33,18 +33,19 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightBold,
   },
+
+  // ,
   content: {
-    maxWidth: "100%",
-    fontSize: theme.typography.pxToRem(14),
-    fontWeight: theme.typography.fontWeightRegular,
-    textAlign: "left",
-    marginTop: theme.spacing.unit * 3,
+    minWidth: "100%",
+    // fontSize: theme.typography.pxToRem(14),
+    // fontWeight: theme.typography.fontWeightRegular,
+    // textAlign: "left",
+    // marginTop: theme.spacing.unit * 3,
     // marginLeft: theme.spacing.unit * 3,
     // marginRight: theme.spacing.unit * 3,
   },
   table: {
-    minWidth: 550,
-    maxWidth: 700,
+    width: "100%",
   },
   tableheader: {
     fontWeight: theme.typography.fontWeightBold,
@@ -91,11 +92,11 @@ const Snim = (props) => {
   }, 0);
 
   return (
-    <div className="tablesContainer">
+    <div>
       <Grid container spacing={3}>
         <Grid item xs={8} className={classes.content}>
           <TableContainer component={Paper}>
-            <Table>
+            <Table className="centeredTable">
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Date</StyledTableCell>

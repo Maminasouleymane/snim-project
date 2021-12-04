@@ -1,0 +1,22 @@
+.mainContainer {
+   margin-top: 5rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+.titleAndCalanderContainer{
+    h1{
+        margin-left: 0;
+    };
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+.contenTable{
+    background-color: purple;
+    width: 80%;
+}

@@ -1,8 +1,10 @@
 import axios from "axios";
 //   ! Actions
+
+// ! set Auxi
 export const setAuxiliaireData = (auxiliaire) => ({
   type: "SET_AUXILIAIRE",
-  auxiliaire,
+  playload: auxiliaire,
 });
 
 export const fetchData = (auxiliaire) => ({

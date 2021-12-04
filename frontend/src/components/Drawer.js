@@ -152,7 +152,7 @@ const PersistentDrawerLeft = () => {
                   activeClassName="is-active"
                   exact={true}
                 >
-                  Les operations
+                  Les opérations
                 </NavLink>
               </ListItem>
               <ListItem button className={classes.nested}>
@@ -178,7 +178,7 @@ const PersistentDrawerLeft = () => {
                   activeClassName="is-active"
                   exact={true}
                 >
-                  Les arréts
+                  Les arrêts
                 </NavLink>
               </ListItem>
 
@@ -186,7 +186,12 @@ const PersistentDrawerLeft = () => {
                 <ListItemIcon>
                   <StarBorder />
                 </ListItemIcon>
-                <NavLink to="/somelec" activeClassName="is-active" exact={true}>
+                <NavLink
+                  to="/somelec"
+                  className="navLink"
+                  activeClassName="is-active"
+                  exact={true}
+                >
                   La liaison SNIM/SML
                 </NavLink>
               </ListItem>
@@ -217,7 +222,7 @@ const PersistentDrawerLeft = () => {
               activeClassName="is-active"
               exact={true}
             >
-              Les operations
+              Les opérations
             </NavLink>
           </ListItem>
           <ListItem button>
@@ -241,7 +246,7 @@ const PersistentDrawerLeft = () => {
               activeClassName="is-active"
               exact={true}
             >
-              Historiques des arréts
+              Historiques des arrêts
             </NavLink>
           </ListItem>
           <ListItem button>
