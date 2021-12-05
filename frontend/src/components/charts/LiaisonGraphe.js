@@ -12,7 +12,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import moment from "moment";
 import { connect } from "react-redux";
-import selectedData from "../selectors/info";
+import selectedData from "../../selectors/info";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {

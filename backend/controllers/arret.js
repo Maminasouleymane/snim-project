@@ -33,7 +33,7 @@ exports.create = (req, res) => {
   // Save auxilier in the database
   Arret.create(arret)
     .then((data) => {
-      res.send(data);
+      res.send("données enregistrées avec succès");
     })
     .catch((err) => {
       res.status(500).send({
@@ -48,7 +48,6 @@ exports.findAll = (req, res) => {
   Arret.findAll()
     .then((data) => {
       res.send(data);
-      console.log(data);
     })
     .catch((err) => {
       res.status(500).send({

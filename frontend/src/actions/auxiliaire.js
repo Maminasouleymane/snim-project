@@ -15,7 +15,7 @@ export const fetchData = (auxiliaire) => ({
 export const startSetAuxiliaire = () => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3009/displayAuxliair")
+      .get("http://localhost:3009/auxliair")
       .then((response) => {
         dispatch(setAuxiliaireData(response.data));
       })

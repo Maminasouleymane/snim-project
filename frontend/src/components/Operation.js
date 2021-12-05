@@ -27,12 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     minWidth: "100%",
-    // fontSize: theme.typography.pxToRem(14),
-    // fontWeight: theme.typography.fontWeightRegular,
-    // textAlign: "left",
-    // marginTop: theme.spacing.unit * 3,
-    // marginLeft: theme.spacing.unit * 3,
-    // marginRight: theme.spacing.unit * 3,
   },
   table: {
     minWidth: 650,

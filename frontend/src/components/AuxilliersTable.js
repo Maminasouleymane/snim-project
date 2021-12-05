@@ -38,7 +38,7 @@ const OperationTable = () => {
   // const sendToServer = () => dispatch(saveAuxiliaire());
   const sendToServer = () => {
     alert(data);
-    axios.post("http://localhost:3009/addAuxiliair", data).then(
+    axios.post("http://localhost:3009/auxiliair", data).then(
       (response) => {
         window.confirm(response.data); // need to add some confirmation in here
         history.push("/auxiliaireHistory");

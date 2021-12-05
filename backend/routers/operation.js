@@ -7,7 +7,7 @@ router.get("/apitest", (req, res) =>
 );
 
 console.log(operationControlller.create);
-router.get("/displayOperation", operationControlller.findAll);
-router.post("/addOperation", operationControlller.create);
+router.get("/operation", operationControlller.findAll);
+router.post("/operation", operationControlller.create);
 
 module.exports = router;

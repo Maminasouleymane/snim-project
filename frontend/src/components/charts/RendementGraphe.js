@@ -7,9 +7,9 @@ import {
   VictoryLabel,
 } from "victory";
 import { connect } from "react-redux";
-import Loading from "./Loading";
-import { startSetGroupe } from "../actions/groupe";
-import selectedData from "../selectors/info";
+import Loading from "../Loading";
+import { startSetGroupe } from "../../actions/groupe";
+import selectedData from "../../selectors/info";
 import moment from "moment";
 
 // const day = parseInt(moment().format("DD"));

@@ -33,7 +33,7 @@ console.log(data);
 const OperationTable = () => {
   const history = useHistory();
   const sendToServer = () => {
-    axios.post("http://localhost:3009/addOperation", data).then(
+    axios.post("http://localhost:3009/operation", data).then(
       (response) => {
         console.log(response);
         window.confirm(response.data); // need to add some confirmation in here

@@ -7,60 +7,68 @@ import {
   VictoryLabel,
 } from "victory";
 import { connect } from "react-redux";
-import { startSetGroupe } from "../actions/groupe";
-import Loading from "./Loading";
-import selectedData from "../selectors/info";
+import Loading from "../Loading";
+import { startSetGroupe } from "../../actions/groupe";
+import selectedData from "../../selectors/info";
+import moment from "moment";
 
-const MtbfGraphe = (props) => {
+const day = parseInt(moment().format("DD"));
+console.log(day, typeof day);
+
+const SpCombustibleGraphe = (props) => {
   const result = props.groupe.reduce((r, o) => {
     let k = o.numero;
-    let rend =
-      o.ep && o.hmarche !== 0
-        ? Number(((100 * o.ep) / (400 * o.hmarche)).toFixed(3))
-        : 0;
-    let mtbf = o.np && o.hmarche !== 0 ? o.hmarche / o.np : 0;
+    let spcomb =
+      o.ep && o.comb !== 0 ? Number((o.comb / (o.ep * 1000)).toFixed(2)) : 0;
     if (r[k] || (r[k] = []))
       r[k].push({
         date: o.date,
         numero: o.numero,
         ep: o.ep,
-        hmarche: o.hmarche,
-        rend,
-        mtbf,
+        comb: o.comb,
+        spcomb,
       });
     return r;
   }, []);
   const { GR3, GR7, GR8, GR10 } = result;
 
-  console.log(GR7[0].mtbf);
-  console.log(GR8[0].mtbf);
+  // console.log(Object.values(result))
+  const stuff = (param) => {
+    param.forEach((res) => {
+      return res.reduce((sum, { spcomb }) => {
+        return sum + spcomb * 100;
+      }, 0);
+    });
+  };
+
+  console.log("im stuff ", stuff(Object.values(result)));
   let cumG3 = GR3.reduce((sum, arr) => {
-    return sum + arr.mtbf;
+    return sum + arr.spcomb;
   }, 0);
 
   let cumG7 = GR7.reduce((sum, arr) => {
-    return sum + arr.mtbf;
+    return sum + arr.spcomb;
   }, 0);
 
   let cumG8 = GR8.reduce((sum, arr) => {
-    return sum + arr.mtbf;
+    return sum + arr.spcomb;
   }, 0);
 
   let cumG10 = GR10.reduce((sum, arr) => {
-    return sum + arr.mtbf;
+    return sum + arr.spcomb;
   }, 0);
 
-  let gr3Today = GR3[GR3.length - 1].mtbf;
-  let gr7Today = GR7[GR7.length - 1].mtbf;
-  let gr8Today = GR8[GR8.length - 1].mtbf;
-  let gr10Today = GR10[GR10.length - 1].mtbf;
+  let gr3Today = Number(GR3[GR3.length - 1].spcomb.toFixed(1));
+  let gr7Today = Number(GR7[GR7.length - 1].spcomb.toFixed(1));
+  let gr8Today = Number(GR8[GR8.length - 1].spcomb.toFixed(1));
+  let gr10Today = Number(GR10[GR10.length - 1].spcomb.toFixed(1));
 
   let totalDeLaJourne = gr8Today + gr3Today + gr7Today + gr10Today;
   let totalMansuel = cumG3 + cumG7 + cumG8 + cumG10;
   if (props.groupe.length === 0) {
     return (
       <div>
-        <Loading />;
+        <Loading />
       </div>
     );
   } else {
@@ -75,11 +83,10 @@ const MtbfGraphe = (props) => {
               }}
               labelComponent={<VictoryLabel dy={-10} size={5} />}
               data={[
-                { x: 1, y: Number(gr3Today.toFixed(0)) },
-                { x: 2, y: Number(gr7Today.toFixed(0)) },
-                { x: 3, y: Number(gr8Today.toFixed(0)) },
-                { x: 4, y: Number(gr10Today.toFixed(0)) },
-                { x: 5, y: Number(totalDeLaJourne.toFixed(0) ) },
+                { x: 1, y: gr3Today },
+                { x: 2, y: gr7Today },
+                { x: 3, y: gr8Today },
+                { x: 4, y: gr10Today },
               ]} // daily value
             />
             <VictoryBar
@@ -91,18 +98,17 @@ const MtbfGraphe = (props) => {
                 { x: 2, y: Number(cumG7.toFixed(0)) },
                 { x: 3, y: Number(cumG8.toFixed(0)) },
                 { x: 4, y: Number(cumG10.toFixed(0)) },
-                { x: 5, y: Number(totalMansuel.toFixed(0)) },
               ]} //monthly value
             />
             <VictoryAxis
-              tickValues={["G3", "G7", "G8", "G10", "Thermique"]}
-              label="MTBF"
+              tickValues={["G3", "G7", "G8", "G10"]}
+              label="Specifique comb"
             />
             <VictoryAxis
               dependentAxis
-              tickValues={[0, 90, 180, 270]}
-              label="Heures "
-              style={{ labels: { fill: "rgb(69, 178, 157)" } }}
+              tickValues={[0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]}
+              //   label="L/MWH"
+              style={{ labels: { fill: "blue" } }}
             />
           </VictoryGroup>
         </VictoryChart>
@@ -116,4 +122,4 @@ const mapStateToProps = (state) => {
     groupe: selectedData(groupe, filters),
   };
 };
-export default connect(mapStateToProps)(MtbfGraphe);
+export default connect(mapStateToProps)(SpCombustibleGraphe);

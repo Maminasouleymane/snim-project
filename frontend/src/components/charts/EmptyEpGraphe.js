@@ -7,7 +7,7 @@ import {
   VictoryGroup,
   VictoryLabel,
 } from "victory";
-import selectedData from "../selectors/info";
+import selectedData from "../../selectors/info";
 import EpGraphe from "./EpGraphe";
 
 const EmptyEpGraphe = (props) => {

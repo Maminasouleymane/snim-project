@@ -1,6 +1,6 @@
 import React from "react";
 import PersistentDrawerLeft from "../components/Drawer";
-import Index from "../components/Index";
+import Index from "../components/charts/Index";
 import Groupe from "../components/Groupe";
 import ArretTable from "../components/ArretTable";
 import Laison from "../components/Laison";

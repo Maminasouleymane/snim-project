@@ -7,14 +7,14 @@ import {
   VictoryGroup,
   VictoryLabel,
 } from "victory";
-import selectedData from "../selectors/info";
-import SpHuileGraphe from "./SpHuileGraphe";
+import selectedData from "../../selectors/info";
+import TmarcheGraphe from "./TmarcheGraphe";
 
-const EmptySpHuileGraphe = (props) => {
+const EmptyTmarcheGraphe = (props) => {
   if (props.groupe.length === 0) {
     return <h2>Empty</h2>;
   }
-  return <SpHuileGraphe />;
+  return <TmarcheGraphe />;
 };
 
 const mapStateToProps = (state) => {
@@ -23,4 +23,4 @@ const mapStateToProps = (state) => {
     groupe: selectedData(groupe, filters),
   };
 };
-export default connect(mapStateToProps)(EmptySpHuileGraphe);
+export default connect(mapStateToProps)(EmptyTmarcheGraphe);

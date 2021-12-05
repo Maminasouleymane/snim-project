@@ -9,7 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
-import selectedData from "../selectors/info";
+import selectedData from "../../selectors/info";
 import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({

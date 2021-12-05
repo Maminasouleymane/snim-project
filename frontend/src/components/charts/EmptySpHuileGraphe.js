@@ -7,14 +7,14 @@ import {
   VictoryGroup,
   VictoryLabel,
 } from "victory";
-import selectedData from "../selectors/info";
-import SpCombustibleGraphe from "./SpCombustibleGraphe";
+import selectedData from "../../selectors/info";
+import SpHuileGraphe from "./SpHuileGraphe";
 
-const EmptySpCombustibleGraphe = (props) => {
+const EmptySpHuileGraphe = (props) => {
   if (props.groupe.length === 0) {
     return <h2>Empty</h2>;
   }
-  return <SpCombustibleGraphe />;
+  return <SpHuileGraphe />;
 };
 
 const mapStateToProps = (state) => {
@@ -23,4 +23,4 @@ const mapStateToProps = (state) => {
     groupe: selectedData(groupe, filters),
   };
 };
-export default connect(mapStateToProps)(EmptySpCombustibleGraphe);
+export default connect(mapStateToProps)(EmptySpHuileGraphe);

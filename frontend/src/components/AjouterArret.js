@@ -88,7 +88,7 @@ const AjouterArret = () => {
   };
 
   const SendData = () => {
-    axios.post("http://localhost:3009/addArret", data).then(
+    axios.post("http://localhost:3009/arret", data).then(
       (response) => {
         console.log(response);
         window.confirm(response.data); // need to add some confirmation in here

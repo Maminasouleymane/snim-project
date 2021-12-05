@@ -105,7 +105,7 @@ const groupes = [
 const GroupesTables = () => {
   const history = useHistory();
   const sendToServer = () => {
-    axios.post("http://localhost:3009/add_groupe", groupes).then(
+    axios.post("http://localhost:3009/groupe", groupes).then(
       (response) => {
         console.log(response);
         window.confirm(response.data); // need to add some confirmation in here

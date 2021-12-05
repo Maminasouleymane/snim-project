@@ -3,7 +3,7 @@ const express = require("express");
 const router = new express.Router();
 
 // console.log(arretControlller.create);
-router.get("/displayGroupe", groupeControlller.findAll);
-router.post("/add_groupe", groupeControlller.create);
+router.get("/groupe", groupeControlller.findAll);
+router.post("/groupe", groupeControlller.create);
 
 module.exports = router;

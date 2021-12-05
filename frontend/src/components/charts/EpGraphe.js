@@ -7,9 +7,9 @@ import {
   VictoryLabel,
 } from "victory";
 import { connect } from "react-redux";
-import { startSetGroupe } from "../actions/groupe";
-import Loading from "./Loading";
-import selectedData from "../selectors/info";
+import { startSetGroupe } from "../../actions/groupe";
+import Loading from "../Loading";
+import selectedData from "../../selectors/info";
 
 const EpGraphe = (props) => {
   const [groupe, setGroupe] = useState(null);

@@ -13,7 +13,7 @@ export const fetchData = (info) => ({
 export const startSetInfo = () => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3009/displayLiaison")
+      .get("http://localhost:3009/liaison")
       .then((response) => {
         dispatch(setInfoData(response.data));
       })

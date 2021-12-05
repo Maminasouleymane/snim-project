@@ -27,7 +27,7 @@ exports.create = (req, res) => {
   // Save auxilier in the database
   Auxilier.create(auxilier)
     .then((data) => {
-      res.send(data);
+      res.send("données enregistrées avec succès");
     })
     .catch((err) => {
       res.status(500).send({

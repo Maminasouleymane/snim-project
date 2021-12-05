@@ -49,7 +49,7 @@ const SmlVersSnim = () => {
   const history = useHistory();
 
   const sendToServer = () => {
-    axios.post("http://localhost:3009/addLiaison", liaison).then(
+    axios.post("http://localhost:3009/liaison", liaison).then(
       (response) => {
         console.log(response);
         window.confirm(response.data); // need to add some confirmation in here

@@ -50,7 +50,7 @@ const ArretTable = () => {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:3009/arret_imprevue")
+      .get("http://localhost:3009/arret")
       .then((response) => {
         console.log(response.data.groupe);
         setInfo(response.data);

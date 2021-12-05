@@ -7,7 +7,7 @@ router.get("/apitest", (req, res) =>
 );
 
 console.log(auxilierControlller.create);
-router.get("/displayAuxliair", auxilierControlller.findAll);
-router.post("/addAuxiliair", auxilierControlller.create);
+router.get("/auxliair", auxilierControlller.findAll);
+router.post("/auxiliair", auxilierControlller.create);
 
 module.exports = router;

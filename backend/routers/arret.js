@@ -7,7 +7,7 @@ router.get("/apitest", (req, res) =>
 );
 
 // console.log(arretControlller.create);
-router.get("/displayArret", arretControlller.findAll);
-router.post("/addArret", arretControlller.create);
+router.get("/arret", arretControlller.findAll);
+router.post("/arret", arretControlller.create);
 
 module.exports = router;
