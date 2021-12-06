@@ -3,7 +3,6 @@ const { Sequelize } = require("sequelize");
 const conf = require("./config.json");
 const { sequelize } = require("../models");
 const { development, test, production } = conf;
-console.log("im conf", development);
 
 module.exports = db = {};
 
@@ -12,7 +11,6 @@ initialize();
 async function initialize() {
   // create db if not exist
   const { username, password, database, host } = conf.development;
-  console.log(username, password);
   const connection = await mysql.createConnection({
     user: username,
     password,

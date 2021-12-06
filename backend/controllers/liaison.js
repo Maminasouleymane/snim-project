@@ -1,12 +1,10 @@
 const moment = require("moment");
 const db = require("../models");
 const Liaison = db.Liaison;
-// const Op = db.Sequelize.Op;
-// const date = moment().format("DD/MM/YYYY");
-// Create and Save a new Tutorial
+
 exports.create = (req, res) => {
   const liaison = req.body;
-  // Save auxilier in the database
+
   Liaison.bulkCreate(liaison)
     .then((data) => {
       res.send("données enregistrées avec succès");
@@ -19,7 +17,6 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
   Liaison.findAll()
     .then((data) => {
