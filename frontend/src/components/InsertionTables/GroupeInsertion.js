@@ -2,9 +2,9 @@ import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import cellEditFactory from "react-bootstrap-table2-editor";
 import { connect } from "react-redux";
-import { sendGroupe } from "../actions/groupe";
+import { sendGroupe } from "../../actions/groupe";
 import { useHistory } from "react-router-dom";
-import SaisieHeader from "./SaisieHeader";
+import SaisieHeader from "../SaisieHeader";
 import axios from "axios";
 import moment from "moment";
 
@@ -102,7 +102,7 @@ const groupes = [
   },
 ];
 
-const GroupesTables = () => {
+const GroupeInsertion = () => {
   const history = useHistory();
   const sendToServer = () => {
     axios.post("http://localhost:3009/groupe", groupes).then(
@@ -118,32 +118,34 @@ const GroupesTables = () => {
     );
   };
   return (
-    <div className="container">
-      <div className="">
-        <SaisieHeader name={" Les groupes"} />
-      </div>
+    <div className="groupeContainer">
+      <div className="container">
+        <div className="">
+          <SaisieHeader name={" Les groupes"} />
+        </div>
 
-      <div className="dataTable">
-        <BootstrapTable
-          keyField="numero"
-          data={groupes}
-          columns={columns}
-          cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
-          striped
-          hover
-          condensed
-        />
-        <button
-          className="btn btn-primary"
-          style={{
-            float: "right",
-            marginBottom: "4rem",
-            width: "17rem",
-          }}
-          onClick={sendToServer}
-        >
-          Enregistrer
-        </button>
+        <div className="dataTable">
+          <BootstrapTable
+            keyField="numero"
+            data={groupes}
+            columns={columns}
+            cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
+            striped
+            hover
+            condensed
+          />
+          <button
+            className="btn btn-primary"
+            style={{
+              float: "right",
+              marginBottom: "4rem",
+              width: "17rem",
+            }}
+            onClick={sendToServer}
+          >
+            Enregistrer
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -156,4 +158,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(GroupesTables);
+export default connect(mapStateToProps)(GroupeInsertion);

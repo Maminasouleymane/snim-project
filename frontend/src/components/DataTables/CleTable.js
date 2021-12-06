@@ -9,15 +9,15 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect, useDispatch } from "react-redux";
-import { startSetGroupe, filterGroupe } from "../actions/groupe";
+import { startSetGroupe, filterGroupe } from "../../actions/groupe";
 import moment from "moment";
-import { setStartDate, setEndDate } from "../actions/filters";
-import Loading from "./Loading";
+import { setStartDate, setEndDate } from "../../actions/filters";
+import Loading from "../Loading";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import groupeFilter from "../selectors/groupe";
-import selectedData from "../selectors/info";
+import groupeFilter from "../../selectors/groupe";
+import selectedData from "../../selectors/info";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",

@@ -3,41 +3,56 @@ import BootstrapTable from "react-bootstrap-table-next";
 import cellEditFactory from "react-bootstrap-table2-editor";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { connect } from "react-redux";
+import { sendGroupe } from "../../actions/groupe";
+import SaisieHeader from "../SaisieHeader";
 import { useHistory } from "react-router-dom";
-import { sendGroupe } from "../actions/groupe";
-import SaisieHeader from "./SaisieHeader";
+import moment from "moment";
 import axios from "axios";
 
 const columns = [
   {
-    dataField: "operation",
-    text: "Operation",
+    dataField: "consomateur",
+    text: "Producteur",
   },
   {
-    dataField: "valeur",
-    text: "Valeur",
+    dataField: "ead",
+    text: "index début EA",
+  },
+  {
+    dataField: "erd",
+    text: "index début ER",
+  },
+  {
+    dataField: "eaf",
+    text: "index fin EA",
+  },
+  {
+    dataField: "erf",
+    text: "index fin ER",
+  },
+  {
+    dataField: "ea",
+    text: "EA",
+  },
+  {
+    dataField: "er",
+    text: "ER",
   },
 ];
-const operation = [
-  { operation: "OP1", valeur: 0 },
-  { operation: "OP2", valeur: 0 },
-  { operation: "OP3", valeur: 0 },
+const date = moment().format("DD/MM/YYYY");
+const liaison = [
+  { date, consomateur: "snim", ead: 0, erd: 0, eaf: 0, erf: 0, ea: 0, er: 0 },
+  { date, consomateur: "somlec", ead: 0, erd: 0, eaf: 0, erf: 0, ea: 0, er: 0 },
 ];
-let data = {
-  op1: operation[0].valeur,
-  op2: operation[1].valeur,
-  op3: operation[2].valeur,
-};
-console.log(data);
-
-const OperationTable = () => {
+const LiaisonInsertion = () => {
   const history = useHistory();
+
   const sendToServer = () => {
-    axios.post("http://localhost:3009/operation", data).then(
+    axios.post("http://localhost:3009/liaison", liaison).then(
       (response) => {
         console.log(response);
         window.confirm(response.data); // need to add some confirmation in here
-        history.push("/operationHistory");
+        history.push("/laisonsnimsomlec");
         location.reload();
       },
       (error) => {
@@ -45,19 +60,17 @@ const OperationTable = () => {
       }
     );
   };
-
   return (
     <div className="groupeContainer">
       <div className="container">
         <div className="">
-          <SaisieHeader name={"Les operations"} />
+          <SaisieHeader name="la liason SNIM/SML" />
         </div>
 
         <div className="dataTable">
           <BootstrapTable
-            keyField="operation"
-            style={{ width: "70%" }}
-            data={operation}
+            keyField="consomateur"
+            data={liaison}
             columns={columns}
             cellEdit={cellEditFactory({ mode: "click", blurToSave: true })}
             striped
@@ -68,12 +81,12 @@ const OperationTable = () => {
 
         <button
           className="btn btn-primary"
-          onClick={sendToServer}
           style={{
             float: "right",
             marginBottom: "4rem",
             width: "17rem",
           }}
+          onClick={sendToServer}
         >
           Enregistrer
         </button>
@@ -82,4 +95,11 @@ const OperationTable = () => {
   );
 };
 
-export default connect()(OperationTable);
+const mapStateToProps = (state) => {
+  const { groupe } = state;
+  return {
+    groupe,
+  };
+};
+
+export default LiaisonInsertion;

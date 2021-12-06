@@ -9,12 +9,12 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
-import { setStartDate, setEndDate } from "../actions/filters";
-import selectedData from "../selectors/info";
+import { setStartDate, setEndDate } from "../../actions/filters";
+import selectedData from "../../selectors/info";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import { startSetArret } from "../actions/auxiliaire";
+import { startSetArret } from "../../actions/auxiliaire";
 import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ArretTable = (props) => {
+const AuxiliaireTable = (props) => {
   const [calendarFocused, setCalendarFocused] = useState(null);
   const classes = useStyles();
 
@@ -126,11 +126,11 @@ const ArretTable = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state.auxiliaire)
+  console.log(state.auxiliaire);
   return {
     auxiliaire: selectedData(state.auxiliaire, state.filters),
     filters: state.filters,
   };
 };
 
-export default connect(mapStateToProps)(ArretTable);
+export default connect(mapStateToProps)(AuxiliaireTable);

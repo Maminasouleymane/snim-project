@@ -9,12 +9,12 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
-import { setStartDate, setEndDate } from "../actions/filters";
-import selectedData from "../selectors/info";
+import { setStartDate, setEndDate } from "../../actions/filters";
+import selectedData from "../../selectors/info";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import { startSetArret } from "../actions/arret";
+import { startSetArret } from "../../actions/operation";
 import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,12 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     minWidth: "100%",
-    // fontSize: theme.typography.pxToRem(14),
-    // fontWeight: theme.typography.fontWeightRegular,
-    // textAlign: "left",
-    // marginTop: theme.spacing.unit * 3,
-    // marginLeft: theme.spacing.unit * 3,
-    // marginRight: theme.spacing.unit * 3,
   },
   table: {
     minWidth: 650,
@@ -51,10 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ArretTable = (props) => {
+const OperationTable = (props) => {
   const [calendarFocused, setCalendarFocused] = useState(null);
   const classes = useStyles();
 
+  let cop1 = 0;
+  let cop2 = 0;
+  let cop3 = 0;
   const onFocusChange = (focused) => {
     setCalendarFocused(focused);
   };
@@ -67,13 +64,13 @@ const ArretTable = (props) => {
   return (
     <div className="mainContainer">
       <div className="titleAndCalanderContainer">
-        <h1>Historique des Arréts :</h1>
+        <h1>Historique des Operations:</h1>
         <div>
           <DateRangePicker
             startDate={props.filters.startDate}
-            startDateId="startDate1"
+            startDateId="nlknklnknlk3"
             endDate={props.filters.endDate}
-            endDateId="endDate1"
+            endDateId="kjjkjnkjkklj0"
             startDatePlaceholderText="date début"
             endDatePlaceholderText="date fin"
             focusedInput={calendarFocused}
@@ -85,56 +82,34 @@ const ArretTable = (props) => {
           />
         </div>
       </div>
-      <div className="contenTable">
+      <div className="contentTable" style={{ width: "80%" }}>
         <Grid container spacing={3}>
           <Grid item xs={12} className={classes.content}>
             <TableContainer component={Paper}>
               <Table id="split_table" size="small">
                 <TableHead>
                   <TableCell align="left">date</TableCell>
-                  <TableCell align="left">groupe</TableCell>
-                  <TableCell align="left">défaut</TableCell>
-                  <TableCell align="left">code défaut</TableCell>
-                  <TableCell align="left">type défaut</TableCell>
-                  <TableCell align="left">section</TableCell>
-                  <TableCell align="left">h_début</TableCell>
-                  <TableCell align="left">h_fin</TableCell>
-                  <TableCell align="left">durée(heure: minute)</TableCell>
-                  <TableCell align="left">durée (heure)</TableCell>
+                  <TableCell align="left">OP1</TableCell>
+                  <TableCell align="left">COP1</TableCell>
+                  <TableCell align="left">OP2</TableCell>
+                  <TableCell align="left">COP2</TableCell>
+                  <TableCell align="left">OP3</TableCell>
+                  <TableCell align="left">COP3</TableCell>
                 </TableHead>
                 <TableBody>
-                  {props.arret.map(
-                    (
-                      {
-                        date,
-                        groupe,
-                        defaut,
-                        codeDefaut,
-                        typeDefaut,
-                        section,
-                        dateDebut,
-                        dateFin,
-                        dureeHM,
-                        duree,
-                      },
-                      index
-                    ) => (
-                      <TableRow key={index}>
-                        <TableCell>
-                          {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
-                        </TableCell>
-                        <TableCell>{groupe}</TableCell>
-                        <TableCell>{defaut}</TableCell>
-                        <TableCell>{codeDefaut}</TableCell>
-                        <TableCell>{typeDefaut}</TableCell>
-                        <TableCell>{section}</TableCell>
-                        <TableCell>{dateDebut}</TableCell>
-                        <TableCell>{dateFin}</TableCell>
-                        <TableCell>{dureeHM}</TableCell>
-                        <TableCell>{duree}</TableCell>
-                      </TableRow>
-                    )
-                  )}
+                  {props.operation.map(({ date, op1, op2, op3 }, index) => (
+                    <TableRow key={index}>
+                      <TableCell>
+                        {moment(date, "DD-MM-YYYY").format("DD/MM/YYYY")}
+                      </TableCell>
+                      <TableCell>{op1}</TableCell>
+                      <TableCell>{(cop1 += op1)}</TableCell>
+                      <TableCell>{op2}</TableCell>
+                      <TableCell>{(cop2 += op2)}</TableCell>
+                      <TableCell>{op3}</TableCell>
+                      <TableCell>{(cop3 += op3)}</TableCell>
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
             </TableContainer>
@@ -147,9 +122,9 @@ const ArretTable = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    arret: selectedData(state.arret, state.filters),
+    operation: selectedData(state.operation, state.filters),
     filters: state.filters,
   };
 };
 
-export default connect(mapStateToProps)(ArretTable);
+export default connect(mapStateToProps)(OperationTable);

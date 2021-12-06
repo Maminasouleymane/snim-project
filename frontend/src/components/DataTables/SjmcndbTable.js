@@ -12,15 +12,15 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect, useDispatch } from "react-redux";
-import { startSetGroupe, filterGroupe } from "../actions/groupe";
-import { setStartDate, setEndDate } from "../actions/filters";
+import { startSetGroupe, filterGroupe } from "../../actions/groupe";
+import { setStartDate, setEndDate } from "../../actions/filters";
 import moment from "moment";
-import Loading from "./Loading";
+import Loading from "../Loading";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import selectedData from "../selectors/info";
-import groupeFilter from "../selectors/groupe";
+import selectedData from "../../selectors/info";
+import groupeFilter from "../../selectors/groupe";
 
 const useStyles = makeStyles((theme) => ({
   root: {

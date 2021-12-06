@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AjouterArret = () => {
+const ArretInsertion = () => {
   const classes = useStyles();
   const history = useHistory();
   const [groupe, setGroupe] = useState("");
@@ -224,4 +224,4 @@ const AjouterArret = () => {
   );
 };
 
-export default AjouterArret;
+export default ArretInsertion;

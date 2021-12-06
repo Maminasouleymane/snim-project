@@ -134,7 +134,7 @@ const PersistentDrawerLeft = () => {
                   <StarBorder />
                 </ListItemIcon>
                 <NavLink
-                  to="/groupe"
+                  to="/groupes-insertion"
                   className="navLink"
                   activeClassName="is-active"
                   exact={true}
@@ -147,7 +147,7 @@ const PersistentDrawerLeft = () => {
                   <StarBorder />
                 </ListItemIcon>
                 <NavLink
-                  to="/operations"
+                  to="/operation-insertion"
                   className="navLink"
                   activeClassName="is-active"
                   exact={true}
@@ -160,7 +160,7 @@ const PersistentDrawerLeft = () => {
                   <StarBorder />
                 </ListItemIcon>
                 <NavLink
-                  to="/auxiliers"
+                  to="/auxiliair-insertion"
                   className="navLink"
                   activeClassName="is-active"
                   exact={true}
@@ -173,7 +173,7 @@ const PersistentDrawerLeft = () => {
                   <StarBorder />
                 </ListItemIcon>
                 <NavLink
-                  to="/arret"
+                  to="/arret-insertion"
                   className="navLink"
                   activeClassName="is-active"
                   exact={true}
@@ -187,7 +187,7 @@ const PersistentDrawerLeft = () => {
                   <StarBorder />
                 </ListItemIcon>
                 <NavLink
-                  to="/somelec"
+                  to="/liaison-insertion"
                   className="navLink"
                   activeClassName="is-active"
                   exact={true}
@@ -201,7 +201,11 @@ const PersistentDrawerLeft = () => {
             <ListItemIcon>
               <SendIcon />
             </ListItemIcon>
-            <NavLink to="/sjmcndb" activeClassName="is-active" exact={true}>
+            <NavLink
+              to="/sjmcndb-archive"
+              activeClassName="is-active"
+              exact={true}
+            >
               SJMCNDB - les groupes
             </NavLink>
           </ListItem>
@@ -209,7 +213,7 @@ const PersistentDrawerLeft = () => {
             <ListItemIcon>
               <SendIcon />
             </ListItemIcon>
-            <NavLink to="/cle" activeClassName="is-active" exact={true}>
+            <NavLink to="/cle-archive" activeClassName="is-active" exact={true}>
               CLE
             </NavLink>
           </ListItem>
@@ -218,7 +222,7 @@ const PersistentDrawerLeft = () => {
               <SendIcon />
             </ListItemIcon>
             <NavLink
-              to="/operationHistory"
+              to="/operation-archive"
               activeClassName="is-active"
               exact={true}
             >
@@ -230,7 +234,7 @@ const PersistentDrawerLeft = () => {
               <SendIcon />
             </ListItemIcon>
             <NavLink
-              to="/auxiliaireHistory"
+              to="/auxiliaires-archive"
               activeClassName="is-active"
               exact={true}
             >
@@ -242,7 +246,7 @@ const PersistentDrawerLeft = () => {
               <SendIcon />
             </ListItemIcon>
             <NavLink
-              to="/historique_arret"
+              to="/arret-archive"
               activeClassName="is-active"
               exact={true}
             >
@@ -254,7 +258,7 @@ const PersistentDrawerLeft = () => {
               <SendIcon />
             </ListItemIcon>
             <NavLink
-              to="/laisonsnimsomlec"
+              to="/laison-archive"
               activeClassName="is-active"
               exact={true}
             >

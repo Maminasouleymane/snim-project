@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
 import { connect } from "react-redux";
-import { setStartDate, setEndDate } from "../actions/filters";
-import selectedData from "../selectors/info";
+import { setStartDate, setEndDate } from "../../actions/filters";
+import selectedData from "../../selectors/info";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import ScrollButton from "./ScrollButton";
+import ScrollButton from "../ScrollButton";
 import Snim from "./Snim";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TableSnim = (props) => {
+const LiaisonTable = (props) => {
   const [calendarFocused, setCalendarFocused] = useState(null);
   const [dateRange, setdateRange] = useState({
     startDate: moment().startOf("month"),
@@ -68,10 +68,9 @@ const TableSnim = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("tis is info ", state.info);
   return {
     info: selectedData(state.info, state.filters),
     filters: state.filters,
   };
 };
-export default connect(mapStateToProps)(TableSnim);
+export default connect(mapStateToProps)(LiaisonTable);
