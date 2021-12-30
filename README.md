@@ -1,3 +1,12 @@
-# snim-project
+# SNIM internship project
 
-i'm currently working on some updates
+## table of contents
+
+1 - [Introduction] (#parag1)
+2- [How to run the project locally] (#parag2)
+
+### Introduction <a name="parag1"></a>
+
+### Run the project locally <a name="parag2"></a>
+
+<!-- ### this was my first application using MERN Stack(MySQL, Express, React, Node)  -->

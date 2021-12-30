@@ -31,8 +31,8 @@ const AppRouter = () => (
         <Route path="/arret-archive" component={ArretTable} />
         <Route path="/auxiliaires-archive" component={AuxiliaireTable} />
         <Route path="/cle-archive" component={CleTable} />
-        <Route path="/sjmcndb-archive" component={SjmcndbTable} />
         <Route path="/laison-archive" component={LiaisonTable} />
+        <Route path="/sjmcndb-archive" component={SjmcndbTable} />
         <Route path="/operation-archive" component={OperationTable} />
       </Switch>
     </div>
