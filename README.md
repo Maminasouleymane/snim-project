@@ -2,8 +2,7 @@
 
 ## table of contents
 
-1 - [Introduction] (#parag1)
-2- [How to run the project locally] (#parag2)
+1.[Introduction](#parag1) 2.[Run the project locally](#parag2)
 
 ### Introduction <a name="parag1"></a>
 
